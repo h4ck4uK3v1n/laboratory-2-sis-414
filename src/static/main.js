@@ -255,18 +255,44 @@ function postData(data, url) {
 }
 
 function onSubmitProduct(event) {
-  // event.preventDefault();
+  event.preventDefault();
+  const data = event.target;
+  const name = data.name.value;
+  const description = data.description.value;
+  const price = data.price.value;
+
+  const product = {
+    name,
+    description,
+    price,
+  };
+  console.log(product);
 
   // logica para la recuparacion de datos
 
-  postData(data, baseProductUrl);
+  postData(product, baseProductUrl);
 }
 
 function onSubmitClient(event) {
-  // event.preventDefault();
-  // logica para la recuparacion de datos
+  event.preventDefault();
+  const data = event.target;
+  const name = data.name.value;
+  const lastName = data.lastName.value;
+  const email = data.email.value;
+  const phone = data.phone.value;
+  const address = data.address.value;
 
-  postData(data, baseClientUrl);
+  const client = {
+    name,
+    lastName,
+    email,
+    phone,
+    address,
+  };
+  // logica para la recuparacion de datos
+  console.log(client);
+
+  postData(client, baseClientUrl);
 }
 
 loadData(baseProductUrl, "product", "app-product"); //
